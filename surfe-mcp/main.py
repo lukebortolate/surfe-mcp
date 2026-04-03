@@ -74,6 +74,4 @@ async def arricchisci_azienda(dominio: str) -> dict:
         return r.json()
 
 if __name__ == "__main__":
-    import uvicorn
-    app = mcp.get_asgi_app()
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+    mcp.run(transport="streamable-http", host="0.0.0.0", port=int(os.environ.get("PORT", 8000)), path="/mcp")
